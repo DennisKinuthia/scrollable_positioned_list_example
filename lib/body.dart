@@ -21,18 +21,15 @@ class _MyBodyState extends State<MyBody> {
     _scrollController = ItemScrollController();
     var indexy = 0;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      var closestMatch = matches.first.matchDateTime;
-      for(var i = 0; i < matches.length; i ++){
-        if(DateTime.now().isAfter(matches[i].matchDateTime) && closestMatch.difference(DateTime.now()).inMinutes <
-          matches[i].matchDateTime.difference(DateTime.now()).inMinutes){
-            closestMatch = matches[i].matchDateTime;
-            indexy = i;
-          }
+      DateTime closestDate = matches.first.matchDateTime;
+      for (var match in matches) {
+        if (DateTime.now().difference(match.matchDateTime).abs() < DateTime.now().difference(closestDate).abs()) {
+          closestDate = match.matchDateTime;
+          indexy = matches.indexWhere((match) => match.matchDateTime == closestDate);
         }
-        debugPrint(indexy.toString());
-        debugPrint(matches.length.toString());
-        _scrollController.scrollTo(index: indexy, duration: const Duration(milliseconds: 250), curve: Curves.easeInCubic);
-      });
+      }
+      _scrollController.jumpTo(index: indexy);
+    });
   }
   
 
@@ -44,6 +41,7 @@ class _MyBodyState extends State<MyBody> {
       itemCount: matches.length,
       itemBuilder: (context, index) {          
         return Card(
+          key: GlobalObjectKey(index),
           elevation: 2.0,
           child: Container(
               width: double.infinity,

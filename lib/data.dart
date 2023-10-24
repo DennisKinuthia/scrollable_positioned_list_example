@@ -6,6 +6,7 @@ List<MatchViewModel> matches = [
     homeTeamName: 'Arsenal',
     awayTeamName: 'Chelsea',
   ),
+
     MatchViewModel(
     matchDateTime: DateTime(2023, 10, 12),
     homeTeamName: 'Man United',
@@ -16,6 +17,7 @@ List<MatchViewModel> matches = [
     homeTeamName: 'Man City',
     awayTeamName: 'Barcelona',
     ),
+
     MatchViewModel(
     matchDateTime: DateTime(2023, 10, 16),
     homeTeamName: 'Ac Milan',
