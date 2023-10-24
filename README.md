@@ -1,16 +1,8 @@
-# scroller
+# Scrollable Positioned List
+This is a widget by [google.dev](https://duckduckgo.com](https://pub.dev/publishers/google.dev)https://pub.dev/publishers/google.dev) that allows the building of a ListView lazily with the additional functionality to jump or scroll to any selected item.
 
-A new Flutter project.
+In this example, i used the `ItemScrollController` and its `scrollTo` property that takes an index, a duration and an animation curve to scroll to the list item on the passed index.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Note:
+1. Replace the dates if testing this in the future i.e. after December 2023, to notice the effect.
+2. Note that dates are represented linearly starting from the past through the present to the future. For this reason it is necessary to choose either future dates `selectedDate.isAfter(DateTime.now())` or past dates `DateTime.now().isAfter(selectedDate)`.
