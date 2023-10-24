@@ -1,4 +1,4 @@
-# Scrollable Positioned List
+# Scrollable Positioned List Example
 This is a widget by [google.dev](https://duckduckgo.com](https://pub.dev/publishers/google.dev)https://pub.dev/publishers/google.dev) that allows the building of a ListView lazily with the additional functionality to jump or scroll to any selected item.
 
 In this example, i used the `ItemScrollController` and its `scrollTo` property that takes an index, a duration and an animation curve to scroll to the list item on the passed index.
