@@ -25,10 +25,12 @@ class _MyBodyState extends State<MyBody> {
       for (var match in matches) {
         if (DateTime.now().difference(match.matchDateTime).abs() < DateTime.now().difference(closestDate).abs()) {
           closestDate = match.matchDateTime;
+
           indexy = matches.indexWhere((match) => match.matchDateTime == closestDate);
         }
       }
       _scrollController.jumpTo(index: indexy);
+
     });
   }
   
