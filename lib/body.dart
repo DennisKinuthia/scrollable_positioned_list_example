@@ -25,10 +25,10 @@ class _MyBodyState extends State<MyBody> {
       for (var match in matches) {
         if (DateTime.now().difference(match.matchDateTime).abs() < DateTime.now().difference(closestDate).abs()) {
           closestDate = match.matchDateTime;
-          indexy = matches.indexOf(match);
+          indexy = matches.indexWhere((match) => match.matchDateTime == closestDate);
         }
       }
-      _scrollController.scrollTo(index: indexy, duration: const Duration(milliseconds: 250), curve: Curves.easeInCubic);
+      _scrollController.jumpTo(index: indexy);
     });
   }
   
@@ -41,6 +41,7 @@ class _MyBodyState extends State<MyBody> {
       itemCount: matches.length,
       itemBuilder: (context, index) {          
         return Card(
+          key: GlobalObjectKey(index),
           elevation: 2.0,
           child: Container(
               width: double.infinity,
